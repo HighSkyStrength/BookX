@@ -15,7 +15,6 @@ def inscription():
     else:
         print("Mot de passe parfait")
         confirmation()
-
 def confirmation():
      print("Tu es donc " + username + " et tu as choisi comme mot de passe: " + password)
      answer = input("Confirmez-vous ? Réponse simple attendue, Oui ou Non, avec le respect des majuscules: ")
@@ -59,6 +58,7 @@ def menu():
     emprunt()
 
 def emprunt():
+    global fantaisie
     print("Quel type de livre voulez-vous ? Choix possibles: Fantaisie, Aventure, SF, BD, Manga, Documaentaire, livre pour enfants.")
     rep_1 = "FANTAISIE"
     rep_2 = "AVENTURE"
@@ -81,7 +81,7 @@ def emprunt():
     if answer.upper() == rep_1:
         answer = input("Vous voulez donc des livres de style fantaisie ? [y/n]")
         if answer.upper() == "Y":
-            print(fantaisie)
+            f()
         elif answer.upper() == "N":
             emprunt()
     if answer.upper() == rep_2:
@@ -120,5 +120,17 @@ def emprunt():
                 print(kids_books)
             elif answer.upper() == "N":
                 emprunt()
+def f() : 
+    print(fantaisie)
+    choix_book_fantaisie = input("Quel livre voulez-vous choisir ?")
+    if choix_book_fantaisie.upper() == "BEGIN FANTASY I" : 
+        choix = input("Prendre 'Begin Fantasy I' comme emprunt ? ")
+        if choix.upper() == "Y" : 
+            panier()
+        elif choix.upper() == "N" :
+            fantaisie()
+
+def panier():
+    print("Panier à choux")
 
 emprunt()
